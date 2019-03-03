@@ -1,18 +1,39 @@
+{% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Rashul Chutani's Blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
+        <div class="page-header">
+            <h1><a href="/">Rashul Chutani's Blog</a></h1>
         </div>
-        
-        {% for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+        <div class="jumbotron">
+            <h1 class="display-3">About the Writer</h1>
+            <p class="lead">Rashul Chutani</p>
+            <hr class="my-2">
+            <p>I am a student at the Indian Institute of Technology Delhi. I am majoring in Mathematics and Computing and hence belong to the Mathematics Department IIT Delhi. My research interests lie in the field of financial algorithms , Machine Learning and optimization techniques. Lately I have developed interest in development and I am pursuing the same.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://rashulchutani.github.io/" role="button">Click here to Visit My Website and get to Know more about me!!!</a>
+            </p>
+        </div>
+        <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% for post in posts %}
+                            <div class="post">
+                                <div class="date">
+                                    <p>published: {{ post.published_date }}</p>
+                                </div>
+                                <h2><a href="">{{ post.title }}</a></h2>
+                                <p>{{ post.text|linebreaksbr }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-        {% endfor %}
     </body>
 </html>
